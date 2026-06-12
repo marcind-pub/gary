@@ -22,33 +22,34 @@
     html, body {
       margin: 0;
       min-height: 100%;
+      height: 100%;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 30%), var(--bg);
-      overflow: auto;
+      overflow: hidden;
     }
 
     .wrap {
       position: relative;
-      display: inline-block;
+      width: 100vw;
+      height: 100vh;
       padding: 0;
     }
 
     .image-stage {
       position: relative;
-      display: inline-block;
-      width: fit-content;
-      height: fit-content;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     .image-stage img {
-      width: auto;
-      height: auto;
-      max-width: none;
-      max-height: none;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
     }
 
@@ -68,7 +69,7 @@
 
     .countdown-label {
       margin: 0 0 8px;
-      font-size: 1rem;
+      font-size: 3rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: #000;
@@ -76,7 +77,7 @@
 
     .countdown-value {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(6rem, 15vw, 10.5rem);
       font-weight: 700;
       letter-spacing: 0.03em;
       color: #000;
@@ -88,6 +89,11 @@
     }
 
     @media (max-width: 640px) {
+      .wrap {
+        width: 100vw;
+        height: 100vh;
+      }
+
       .countdown {
         padding: 14px 12px;
       }
